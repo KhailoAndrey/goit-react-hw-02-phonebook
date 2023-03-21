@@ -3,6 +3,10 @@ import { Filter } from '../Filter/Filter.jsx';
 import { Wrapper, Title, List, ListItem } from './ContactList.styled';
 
 export class ContactList extends Component {
+  handleRemoveClick(id) {
+    this.props.removeContact(id);
+  }
+
   render() {
     return (
       <Wrapper>
@@ -13,7 +17,9 @@ export class ContactList extends Component {
             <ListItem key={contact.id}>
               <span>{contact.name}: </span>
               <span>{contact.number}</span>
-              <button>Delete</button>
+              <button onClick={() => this.handleRemoveClick(contact.id)}>
+                Delete
+              </button>
             </ListItem>
           ))}
         </List>

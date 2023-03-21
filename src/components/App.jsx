@@ -25,12 +25,21 @@ export class App extends Component {
       contacts: [...contacts, contact],
     }));
   };
+  removeContact = id => {
+    const newContacts = this.state.contacts.filter(
+      contact => contact.id !== id
+    );
+    this.setState({ contacts: newContacts });
+  };
 
   render() {
     return (
       <div>
         <ContactForm onSubmit={this.addContact}></ContactForm>
-        <ContactList contacts={this.state.contacts}></ContactList>
+        <ContactList
+          contacts={this.state.contacts}
+          removeContact={this.removeContact}
+        ></ContactList>
       </div>
     );
   }
