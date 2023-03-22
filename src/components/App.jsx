@@ -32,15 +32,34 @@ export class App extends Component {
     }));
   };
 
+  filterValue = e => {
+    this.setState({ filter: e.currentTarget.value.trim() });
+  };
+
+  filteredContacts = () => {
+    const { filter, contacts } = this.state;
+    return contacts.filter(
+      contact =>
+        contact.name.toLowerCase().includes(filter.toLowerCase()) ||
+        contact.number.includes(filter)
+    );
+  };
+
   render() {
+    const { filter } = this.state;
+    const ResultFiltered = this.filteredContacts();
     return (
       <div>
-        <ContactForm onSubmit={this.addContact}></ContactForm>
-        <Filter filter={this.state.filter}></Filter>
-        <ContactList
-          contacts={this.state.contacts}
-          removeContact={this.removeContact}
-        ></ContactList>
+        <ContactForm onSubmit={this.addContact} />
+        <Filter name={filter} onChange={this.filterValue} />
+        {this.state.contacts[0] && ResultFiltered[0] ? (
+          <ContactList
+            contacts={ResultFiltered}
+            removeContact={this.removeContact}
+          />
+        ) : (
+          <p>There’s nothing here yet...</p>
+        )}
       </div>
     );
   }
