@@ -1,4 +1,7 @@
+import PropTypes from 'prop-types';
+
 import React, { Component } from 'react';
+
 import { Wrapper, List, ListItem } from './ContactList.styled';
 
 export class ContactList extends Component {
@@ -24,3 +27,10 @@ export class ContactList extends Component {
     );
   }
 }
+
+ContactList.propTypes = {
+  removeContact: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.string.isRequired).isRequired
+  ).isRequired,
+};

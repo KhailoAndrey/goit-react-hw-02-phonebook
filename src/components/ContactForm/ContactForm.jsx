@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   Wrapper,
   Title,
@@ -62,3 +63,7 @@ export class ContactForm extends Component {
     );
   }
 }
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

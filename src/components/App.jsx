@@ -14,17 +14,23 @@ export class App extends Component {
     ],
     filter: '',
   };
-
+  checkNewName = newName => {
+    return this.state.contacts.find(({ name }) => name === newName);
+  };
   addContact = ({ name, number }) => {
-    const nameId = nanoid();
-    const contact = {
-      id: nameId,
-      name,
-      number,
-    };
-    this.setState(({ contacts }) => ({
-      contacts: [...contacts, contact],
-    }));
+    if (!this.checkNewName(name)) {
+      const nameId = nanoid();
+      const contact = {
+        id: nameId,
+        name,
+        number,
+      };
+      this.setState(({ contacts }) => ({
+        contacts: [...contacts, contact],
+      }));
+    } else {
+      alert(`${name} is already in contacts!`);
+    }
   };
   removeContact = id => {
     this.setState(prevState => ({

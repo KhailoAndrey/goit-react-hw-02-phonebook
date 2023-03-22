@@ -12,6 +12,7 @@ export const Title = styled.h2`
 
 export const AddBox = styled.div`
   border: 1px solid ${p => p.theme.colors.black};
+  border-radius: 4px;
   width: 300px;
   padding: 10px;
 `;
