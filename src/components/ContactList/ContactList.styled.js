@@ -4,11 +4,7 @@ export const Wrapper = styled.div`
   margin: 8px;
 `;
 
-export const Title = styled.h2`
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 10px;
-`;
+
 
 export const List = styled.ul`
 list-style: none;

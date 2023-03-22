@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
+import { Filter } from './Filter/Filter';
 
 export class App extends Component {
   state = {
@@ -26,16 +27,16 @@ export class App extends Component {
     }));
   };
   removeContact = id => {
-    const newContacts = this.state.contacts.filter(
-      contact => contact.id !== id
-    );
-    this.setState({ contacts: newContacts });
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
   };
 
   render() {
     return (
       <div>
         <ContactForm onSubmit={this.addContact}></ContactForm>
+        <Filter filter={this.state.filter}></Filter>
         <ContactList
           contacts={this.state.contacts}
           removeContact={this.removeContact}

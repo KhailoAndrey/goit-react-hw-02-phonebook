@@ -1,10 +1,19 @@
-import { Wrapper, Label } from './Filter.styled';
+import React, { Component } from 'react';
 
-export const Filter = () => { 
+import { Wrapper, Label, Title } from './Filter.styled';
+
+export class Filter extends Component {
+    filterContacts = () => {
+      this.props.filter(this.state.filter);
+  };
+
+  render() {
     return (
-        <Wrapper>
-            <Label>Find contacts by name</Label>
-            <input type="text" />
-        </Wrapper>
-    )
-};
+      <Wrapper>
+        <Title>Contacts</Title>
+        <Label>Find contacts by name</Label>
+        <input type="text" onChange={this.filterContacts} />
+      </Wrapper>
+    );
+  }
+}
