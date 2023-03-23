@@ -15,7 +15,9 @@ export class App extends Component {
     filter: '',
   };
   checkNewName = newName => {
-    return this.state.contacts.find(({ name }) => name === newName);
+    return this.state.contacts.find(
+      ({ name }) => name.toLowerCase() === newName.toLowerCase()
+    );
   };
   addContact = ({ name, number }) => {
     if (!this.checkNewName(name)) {
@@ -57,7 +59,7 @@ export class App extends Component {
     return (
       <div>
         <ContactForm onSubmit={this.addContact} />
-        <Filter name={filter} onChange={this.filterValue} />
+        <Filter value={filter} onChange={this.filterValue} />
         {this.state.contacts[0] && ResultFiltered[0] ? (
           <ContactList
             contacts={ResultFiltered}

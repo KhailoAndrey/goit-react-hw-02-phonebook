@@ -28,9 +28,9 @@ export class ContactForm extends Component {
     return (
       <Wrapper>
         <Title>Phonebook</Title>
-        <AddBox>
-          <Label>Name</Label>
-          <form type="submit" onSubmit={this.handleSubmit}>
+        {/* <AddBox> */}
+          <AddBox onSubmit={this.handleSubmit}>
+            <Label>Name</Label>
             <input
               type="text"
               name="name"
@@ -41,9 +41,9 @@ export class ContactForm extends Component {
               title="Имя может состоять только из букв, апострофа, тире и пробелов."
               required
             />
-          </form>
-          <Label>Number</Label>
-          <form>
+
+            <Label>Number</Label>
+
             <input
               type="tel"
               name="number"
@@ -54,9 +54,11 @@ export class ContactForm extends Component {
               title="Имя может состоять только из букв, апострофа, тире и пробелов."
               required
             />
-          </form>
-          <AddContactButton type="submit">Add contact</AddContactButton>
-        </AddBox>
+            <AddContactButton type="submit" onClick={this.handleSubmit}>
+              Add contact
+            </AddContactButton>
+          </AddBox>
+        {/* </AddBox> */}
       </Wrapper>
     );
   }

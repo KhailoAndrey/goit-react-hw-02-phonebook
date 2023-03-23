@@ -10,11 +10,13 @@ export const Title = styled.h2`
   margin-bottom: 10px;
 `;
 
-export const AddBox = styled.div`
+export const AddBox = styled.form`
   border: 1px solid ${p => p.theme.colors.black};
   border-radius: 4px;
   width: 300px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Label = styled.h3`

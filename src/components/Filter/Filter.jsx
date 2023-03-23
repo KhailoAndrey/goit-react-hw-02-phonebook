@@ -2,17 +2,17 @@ import PropTypes from 'prop-types';
 
 import { Wrapper, Label, Title } from './Filter.styled';
 
-export const Filter = ({ name, onChange }) => {
+export const Filter = ({ value, onChange }) => {
   return (
     <Wrapper>
       <Title>Contacts</Title>
       <Label>Find contacts by name</Label>
-      <input type="text" name={name} onChange={onChange} />
+      <input type="text" value={value} onChange={onChange} />
     </Wrapper>
   );
 };
 
 Filter.propTypes = {
-  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
