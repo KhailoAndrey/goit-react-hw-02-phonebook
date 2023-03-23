@@ -30,7 +30,7 @@ export class ContactForm extends Component {
         <Title>Phonebook</Title>
         <AddBox>
           <Label>Name</Label>
-          <form>
+          <form type="submit" onSubmit={this.handleSubmit}>
             <input
               type="text"
               name="name"
@@ -55,9 +55,7 @@ export class ContactForm extends Component {
               required
             />
           </form>
-          <AddContactButton type="submit" onClick={this.handleSubmit}>
-            Add contact
-          </AddContactButton>
+          <AddContactButton type="submit">Add contact</AddContactButton>
         </AddBox>
       </Wrapper>
     );
